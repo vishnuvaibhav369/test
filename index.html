@@ -3,93 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Green</title>
-    <link rel="icon" href="logo.jpg" type="jpg">
+    <title>Book Fest 2026 - Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        #event-info {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .sponsors-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .sponsor-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .sponsor-logo:hover {
+            transform: scale(1.05);
+            border-color: #e67e22;
+        }
+
+        /* Two-Column Layout */
+        .registration-box {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 320px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #e67e22;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #d35400;
+        }
+
+        .placeholder-text {
+            color: #7f8c8d;
+            font-style: italic;
+            border: 2px dashed #bdc3c7;
+            padding: 50px 20px;
+            text-align: center;
+            background: #fafafa;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .contact-links a {
+            color: #e67e22;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body bgcolor="lightgreen">
-    <h1 style="text-align: center;">WELCOME</h1>
-    <h3 style="text-align: center;">TO</h3>
-    <h1 style="text-align: center;">THE GREEN RESTAURANT</h1>
-    <h1 style="text-align: center;">MENU</h1>
-    <h3>STARTERS:</h3>
-    <ul>
-        <li>Spring Roll----------------------------------150/-</li>
-        <li>Chilli Potato---------------------------------150/-</li>
-        <li>Chow mein----------------------------------170/-</li>
-        <li>Paneer Tikka--------------------------------220/-</li>
-        <li>Baby Corn Chilli---------------------------180/-</li>
-    </ul>
-    <img src="springroll.jpg" alt="Spring_Roll" height="100" width="100">
-    <img src="chillipotato.jpg" alt="Chilli_Potato" height="100" width="100">
-    <img src="Chow mein.jpg" alt="Chow_mein" height="100" width="100">
-    <img src="paneertikka.jpg" alt="Paneer_Tikka" height="100" width="100">
-    <img src="babycorn.jpg" alt="Baby_Corn" height="100" width="100">
-    <h3>PANEER DISHES:</h3>
-    <ul>
-        <li>Paneer Butter Masala---------------------320/-</li>
-        <li>Paneer Makhni-----------------------------310/-</li>
-        <li>Kadhai Paneer------------------------------330/-</li>
-        <li>Matar Paneer-------------------------------280/-</li>
-        <li>Palak Paneer--------------------------------300/-</li>
-    </ul>
-    <img src="buttermasala.jpg" alt="Butter_masala" height="100" width="100">
-    <img src="makhni.jpg" alt="Paneer_makhni" height="100" width="100">
-    <img src="Kadhai.jpg" alt="Kadhai_paneer" height="100" width="100">
-    <img src="matar.jpg" alt="Matar_paneer" height="100" width="100">
-    <img src="palak.jpg" alt="Palak_paneer" height="100" width="100">
-    <h3>MAIN DISHES:</h3>
-    <ul>
-        <li>Malai Kofta---------------------------------280/-</li>
-        <li>Lauki Kofta---------------------------------280/-</li>
-        <li>Poriyal----------------------------------------250/-</li>
-        <li>Kaccha Kela Kofta------------------------300/-</li>
-        <li>Aloo Gobhi Matar-------------------------250/-</li>
-    </ul>
-    <img src="malaikofta.jpg" alt="Malai_kofta" height="100" width="100">
-    <img src="lauki.jpg" alt="Lauki_kofta" height="100" width="100">
-    <img src="poriayl.jpg" alt="Poriyal" height="100" width="100">
-    <img src="kela.jpg" alt="Kela_kofta" height="100" width="100">
-    <img src="aloogobi.jpg" alt="Aloo_gobi" height="100" width="100">
-    <h3>SPECIAL THALI</h3>
-    <ul>
-        <li>Rajasthani (Dal Baati)--------------------320/-</li>
-        <li>Gujarati (Sweet/savory farsaans)-------350/-</li>
-        <li>South Indian (Sambar/Rasam)----------250/-</li>
-        <li>Punjabi (Paratha/Chole)-----------------380/-</li>
-        <li>Himalayan (Daal Bhat/Thukpa)--------280/-</li>
-    </ul>
-    <img src="rajasthani.jpg" alt="Rajasthani" height="100" width="100">
-    <img src="gujarat.jpg" alt="Gujarati" height="100" width="100">
-    <img src="south.jpg" alt="South Indian" height="100" width="100">
-    <img src="punjab.jpg" alt="Punjabi" height="100" width="100">
-    <img src="himali.jpg" alt="Himalayan" height="100" width="100">
-    <h3>ROTI</h3>
-    <ul>
-        <li>Tandoori Roti-------------------------------45/-</li>
-        <li>Naan-----------------------------------------60/-</li>
-        <li>Butter Naan---------------------------------70/-</li>
-        <li>Plain Roti-----------------------------------20/-</li>
-        <li>Methi Roti----------------------------------30/-</li>
-    </ul>
-    <img src="tandoori.jpg" alt="Tandoori Roti" height="100" width="100">
-    <img src="naan.jpg" alt="Naan" height="100" width="100">
-    <img src="butternaan.jpg" alt="Butter Naan" height="100" width="100">
-    <img src="roti.jpg" alt="Plain Roti" height="100" width="100">
-    <img src="methi.jpg" alt="Methi Roti" height="100" width="100">
-    <h3>DESSERTS</h3>
-    <ul>
-        <li>Gulab Jamun (2pic.)-----------------------45/-</li>
-        <li>Creamy Rasmalai (2pic.)-----------------55-/</li>
-        <li>Saffron Kheer------------------------------80/-</li>
-        <li>Jalebi(2pic.)--------------------------------70/-</li>
-        <li>Rabri---------------------------------------100/-</li>
-    </ul>
-    <img src="gulabjamun.jpg" alt="Gulab Jamun" height="100" width="100">
-    <img src="rasmalai.jpg" alt="Creamy Rasmalai" height="100" width="100">
-    <img src="kheer.jpg" alt="Saffron Kheer" height="100" width="100">
-    <img src="jalebi.jpg" alt="Jalebi" height="100" width="100">
-    <img src="rabri.jpg" alt="Rabri" height="100" width="100">
-    <h1 style="text-align: center;">THANK YOU</h1>
+<body>
+
+    <header>
+        <h1>Book Fest 2026</h1>
+        <p>Turning Pages, Connecting Worlds</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="event-info">
+            <h2>About the Festival</h2>
+            <p><strong>Date:</strong> October 15-17, 2026</p>
+            <p><strong>Venue:</strong> Grand Plaza Hall & Live Stream</p>
+            <p>Join us for the premier literary event of the year. Meet your favorite authors and discover your next great read.</p>
+
+            <div class="sponsors">
+                <h3>Our Sponsors</h3>
+                <p></p>
+                <div class="sponsors-container">
+                    <div class="sponsor-logo">
+                        <a href="https://www.crossword.in/" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXm_qskMj20vZkVM6ph0yn_sfvPbM3_6Q-hw&s" height="100"></a></div>
+                    <div class="sponsor-logo">
+                        <a href="https://www.scholastic.com" target="_blank"><img src="https://1000logos.net/wp-content/uploads/2024/05/Scholastic-Emblem.png" height="100"></a></div>
+                    <div class="sponsor-logo">
+                        <a href="https://www.ipgbook.com" target="_blank"><img src="https://images.bookstore.ipgbook.com/images/publisher/RIN.jpg" height="100"></a></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="registration-box">
+            
+            <div class="column">
+                <h2>Pre-Event Survey</h2>
+                <div>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScLn7gZTasuQsZo2Ok1SQg7SEzOzAGjMJwCekb8JIjf_fS74A/viewform?embedded=true" width="500" height="1041" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            </div>
+
+            <div class="column">
+                <h2>Register for Tickets</h2>
+                <div>
+                    <form>
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="fullname" name="name" placeholder="Your_Name">
+
+                        <label for="age">Age:</label>
+                        <input type="number" name="age" id="age" placeholder="Your_age">
+
+                        <label for="mail">e-mail:</label>
+                        <input id="mail" type="email" name="email" placeholder="with@gmail">
+
+                        <label for="ticket">Ticket type:</label>
+                        <select name="ticket" id="ticket">
+                            <option value="visitor">Visitor</option>
+                            <option value="stall">Stall Owner</option>
+                            <option value="volunteer">Volunteer</option>
+                        </select>
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Book Club, SRM</p>
+        <div class="contact-links">
+            <p>Questions? Contact us:</p>
+            <a href="mailto:info@bookfest2026.com">info@bookfest2026.com</a> | 
+            <a href="tel:9811167890">9811167890</a>
+        </div>
+        <p>Follow us on Social Media @BookFest2026</p>
+    </footer>
 
 </body>
 </html>
