@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian Flag Assignment</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            text-align: center;
+            background-color: azure;
+        }
+
+        .flag {
+            width: 360px;
+            height: 240px;
+            margin: 50px auto;
+            border: 2px solid black;
+        }
+
+        .stripe {
+            height: 33.33%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chakra {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: navy;
+        }
+    </style>
+
+    <link rel="stylesheet" href="flag_style.css">
+</head>
+<body>
+
+    <div id="page-title">Indian National Flag</div>
+    <div class="flag">
+        <div class="stripe top"></div>
+        <div class="stripe middle">
+            <div class="chakra"></div>
+        </div>
+        <div class="stripe bottom"></div>
+    </div>
+
+    <p><b>Instructions: </b>Create a <i>flag_style.css</i> file to style the flag -</p>
+    <ul>
+        <li>Title Text Size: 40px, Font: Times New Roman</li>
+        <li>Top Strip: colour: HEX(FF9933)</li>
+        <li>Middle Strip: colour: white</li>
+        <li>Bottom Strip: colour: RGB(19,136,8)</li>
+    </ul>
+</body>
+</html>
