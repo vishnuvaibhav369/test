@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SRM Buddy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #e8e0ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 16px;
+    }
+
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .logo-wrap img {
+      height: 90px;
+      width: auto;
+      border-radius: 12px;
+    }
+
+    .top {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .top h1 {
+      font-size: 24px;
+      color: #5c35d4;
+      margin-bottom: 4px;
+    }
+
+    .top p {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .box {
+      background: #fff;
+      border-radius: 18px;
+      border: 2px solid #d4c9ff;
+      padding: 18px;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .chatbox {
+      height: 300px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .chatbox::-webkit-scrollbar { width: 4px; }
+    .chatbox::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+
+    .bubble-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bubble-wrap.me { align-items: flex-end; }
+    .bubble-wrap.bot { align-items: flex-start; }
+
+    .who {
+      font-size: 11px;
+      color: #aaa;
+      margin-bottom: 4px;
+      padding: 0 6px;
+    }
+
+    .bubble {
+      padding: 9px 14px;
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 80%;
+    }
+
+    .bubble.me {
+      background: #7c4dff;
+      color: #fff;
+      border-radius: 18px 18px 4px 18px;
+    }
+
+    .bubble.bot {
+      background: #f0edff;
+      color: #333;
+      border-radius: 18px 18px 18px 4px;
+      border: 1px solid #d4c9ff;
+    }
+
+    .pills {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      background: #f0edff;
+      color: #7c4dff;
+      border: 1.5px solid #c4b5fd;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .pill:hover { background: #e0d9ff; }
+
+    .row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .row input {
+      flex: 1;
+      background: #f9f7ff;
+      border: 1.5px solid #d4c9ff;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 14px;
+      outline: none;
+      color: #333;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .row input::placeholder { color: #bbb; }
+    .row input:focus { border-color: #7c4dff; }
+
+    .row button {
+      background: #7c4dff;
+      border: none;
+      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .row button:hover { background: #6a3de8; }
+    .row button:active { transform: scale(0.95); }
+
+    .row button svg {
+      fill: white;
+      width: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-wrap">
+    <img src="SRM_Institute_of_Science_and_Technology_Logo.svg.png" alt="SRM Logo">
+  </div>
+
+  <div class="top">
+    <h1>🎓 SRM Buddy</h1>
+    <p>your lazy classmate who knows everything lol</p>
+  </div>
+
+  <div class="box">
+    <div class="chatbox" id="chatbox"></div>
+
+    <div class="pills">
+      <span class="pill" onclick="fill('timetable')">📅 timetable</span>
+      <span class="pill" onclick="fill('teacher')">👩‍🏫 teacher</span>
+      <span class="pill" onclick="fill('find')">🔍 find</span>
+      <span class="pill" onclick="fill('exit')">👋 exit</span>
+    </div>
+
+    <div class="row">
+      <input type="text" id="inp" placeholder="ask something...">
+      <button onclick="send()">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let state = "normal";
+    const names = ["Pratham", "Vishnu", "sharukesh"];
+    const rolls = ["RA2511026011398", "RA2511026011397", "RA2511026011405"];
+    const oodps = "Pratibha", maths = "Mahesh", semi = "Ganeshan";
+
+    function addMsg(text, who) {
+      const box = document.getElementById("chatbox");
+      const w = document.createElement("div");
+      w.className = "bubble-wrap " + who;
+
+      const lbl = document.createElement("div");
+      lbl.className = "who";
+      lbl.textContent = who === "me" ? "you" : "buddy";
+
+      const b = document.createElement("div");
+      b.className = "bubble " + who;
+      b.innerHTML = text;
+
+      w.appendChild(lbl);
+      w.appendChild(b);
+      box.appendChild(w);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function fill(v) {
+      document.getElementById("inp").value = v;
+      document.getElementById("inp").focus();
+    }
+
+    function send() {
+      const el = document.getElementById("inp");
+      const val = el.value.trim();
+      if (!val) return;
+
+      addMsg(val, "me");
+      el.value = "";
+      let reply = "";
+
+      if (state === "timetable") {
+        if (val === "1") reply = "day 1 go brrr 🔥<br>9:50–11:30 Semi-lab → 12:35–4:00 Step Class → 4:00–4:50 OODPS";
+        else if (val === "2") reply = "day 2 grind 😤<br>8:00–9:40 Semi-Theory → 9:45–11:30 OODPS → 1:25–4:50 EGD";
+        else reply = "bro type 1 or 2 only 😭";
+        state = "normal";
+      }
+
+      else if (state === "find") {
+        let found = false;
+        for (let i = 0; i < names.length; i++) {
+          if (names[i] === val) {
+            reply = `found em! 🎉 <b>${names[i]}</b> — ${rolls[i]}`;
+            found = true;
+          }
+        }
+        if (!found) reply = "nope, not in the list 🤷";
+        state = "normal";
+      }
+
+      else {
+        if (val === "timetable") {
+          reply = "which day order? type 1 or 2 👇";
+          state = "timetable";
+        } else if (val === "teacher") {
+          reply = `OODPS → <b>${oodps}</b> 👩‍🏫<br>Calculus → <b>${maths}</b> 📐<br>Semiconductor → <b>${semi}</b> 💡`;
+        } else if (val === "find") {
+          reply = "who u looking for? type the name 👀";
+          state = "find";
+        } else if (val === "exit") {
+          reply = "byeee see u in class 👋😂";
+        } else {
+          reply = "idk that one bro 😅 try: timetable, teacher, find, exit";
+        }
+      }
+
+      setTimeout(() => addMsg(reply, "bot"), 250);
+    }
+
+    document.getElementById("inp").addEventListener("keypress", e => {
+      if (e.key === "Enter") send();
+    });
+
+    addMsg("heyyy welcome 👋 what do u need?", "bot");
+  </script>
+
+</body>
+</html>
